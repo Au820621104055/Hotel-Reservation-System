@@ -82,13 +82,13 @@ public class RIResidentManagement {
     }
 
 
-	public boolean updateOccupancyByResidentId(long idProof, int ad, int ch12, int ch5) {
+	public boolean updateOccupancyByResidentId(long id, int ad, int ch12, int ch5) {
 		try {
             PreparedStatement ps = getConnection().prepareStatement("UPDATE riresident SET number_of_adults=?, number_of_children_above12=?, number_of_children_above5=? WHERE resident_id=?");
             ps.setInt(1, ad);
             ps.setInt(2, ch12);
             ps.setInt(3, ch5);
-            ps.setLong(4, idProof);
+            ps.setLong(4, id);
             int result = ps.executeUpdate();
             if(result>0) {
             	return true;
